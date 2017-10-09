@@ -25,7 +25,22 @@
     <!-- <button @click="addName">add name</button> -->
     <!-- <button @click='method' :title='title'>Hover over me!</button> -->
     <!-- <button :class="{'is-loading': isLoading}" @click="toggleClass">Click me!</button> -->
-    <button :disabled="active" @click='toggleClass'>Click me!</button>
+    <!-- <button :disabled="active" @click='toggleClass'>Click me!</button> -->
+    <!-- <h1>{{ reversedMessage }}</h1> -->
+    <h2>All Tasks</h2>
+    <ul>
+      <li v-for="task in tasks"><input type="checkbox" v-model='task.completed'>{{task.description}}</li>
+    </ul>
+    <hr>
+    <h2>Completed Tasks</h2>
+    <ul>
+      <li v-for='task in completedTasks' v-text='task.description'></li>
+    </ul>
+    <hr>
+    <h2>Incomplete Tasks</h2>
+    <ul>
+      <li v-for="task in incompleteTasks" v-text="task.description"></li>
+    </ul>
   </div>
 
   <script src='https://unpkg.com/vue@2.4.4/dist/vue.js'></script>
@@ -35,13 +50,20 @@
       el: '#app',
       data: {
         newName: '',
-        // message: 'Hello World'
+        message: 'Hello World',
         names: [ "Joe", "Mary", "Jane", 'Jack'],
         title: 'Now the title is being set through javascript',
         className: 'color-red',
         isLoading: false,
-        active: false
-
+        active: false,
+        tasks: [
+              {description: 'Go to the store', completed: true},
+              {description: 'Finish screencast', completed: false},
+              {description: 'Make donation', completed: false},
+              {description: 'Clear inbox', completed: false},
+              {description: 'Make dinnerr', completed: false},
+              {description: 'Clean room', completed: true}
+        ]
       },
       // all ways keep methods nested inside methods object
       methods: {
@@ -51,6 +73,22 @@
         },
         toggleClass() {
           this.active = true;
+        }
+      },
+      computed: {
+        // reversedMessage() {
+        //   return this.message.split('').reverse().join('');
+        // }
+        completedTasks() {
+          return this.tasks.filter(task => task.completed);
+        },
+        incompleteTasks() {
+          // ES6
+          return this.tasks.filter(task => ! task.completed);
+          // ES5
+          // this.tasks.filter(function(task) {
+          //   return ! task.completed;
+          // })
         }
       }
     })
