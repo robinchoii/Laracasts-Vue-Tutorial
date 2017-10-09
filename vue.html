@@ -2,7 +2,12 @@
 <html>
 <head>
   <title></title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css
+">
   <style type="text/css">
+    body {
+        padding-top: 40px;
+    }
     .color-red {
       color: red;
     }
@@ -15,7 +20,7 @@
   </style>
 </head>
 <body>
-  <div id='app'>
+  <div id='app' class='container'>
 <!--     <input type="text" id='input' v-model='message'>
     <p>The value of the input is: {{message}}.</p> -->
 <!--     <ul>
@@ -27,7 +32,7 @@
     <!-- <button :class="{'is-loading': isLoading}" @click="toggleClass">Click me!</button> -->
     <!-- <button :disabled="active" @click='toggleClass'>Click me!</button> -->
     <!-- <h1>{{ reversedMessage }}</h1> -->
-    <h2>All Tasks</h2>
+<!--     <h2>All Tasks</h2>
     <ul>
       <li v-for="task in tasks"><input type="checkbox" v-model='task.completed'>{{task.description}}</li>
     </ul>
@@ -40,61 +45,30 @@
     <h2>Incomplete Tasks</h2>
     <ul>
       <li v-for="task in incompleteTasks" v-text="task.description"></li>
-    </ul>
+    </ul> -->
+
+
+
+    <!-- <welcome></welcome> -->
+<!--     <h1>All tasks</h1>
+    <task-list></task-list>
+    <hr>
+    <h1>Completed Tasks</h1>
+    <completed-tasks></completed-tasks>
+    <hr> -->
+    <!-- <h1>Incomplete Tasks</h1> -->
+
+
+    <message title='Hello World!' body='this is message from the World'></message>
+
+    <message title='Hello Universer!' body='this is message from the Universe'></message>
+
+
+
   </div>
 
   <script src='https://unpkg.com/vue@2.4.4/dist/vue.js'></script>
-  <script>
 
-    var app = new Vue({
-      el: '#app',
-      data: {
-        newName: '',
-        message: 'Hello World',
-        names: [ "Joe", "Mary", "Jane", 'Jack'],
-        title: 'Now the title is being set through javascript',
-        className: 'color-red',
-        isLoading: false,
-        active: false,
-        tasks: [
-              {description: 'Go to the store', completed: true},
-              {description: 'Finish screencast', completed: false},
-              {description: 'Make donation', completed: false},
-              {description: 'Clear inbox', completed: false},
-              {description: 'Make dinnerr', completed: false},
-              {description: 'Clean room', completed: true}
-        ]
-      },
-      // all ways keep methods nested inside methods object
-      methods: {
-        addName() {
-          this.names.push(this.newName);
-          this.newName = '';
-        },
-        toggleClass() {
-          this.active = true;
-        }
-      },
-      computed: {
-        // reversedMessage() {
-        //   return this.message.split('').reverse().join('');
-        // }
-        completedTasks() {
-          return this.tasks.filter(task => task.completed);
-        },
-        incompleteTasks() {
-          // ES6
-          return this.tasks.filter(task => ! task.completed);
-          // ES5
-          // this.tasks.filter(function(task) {
-          //   return ! task.completed;
-          // })
-        }
-      }
-    })
-
-
-
-  </script>
+  <script src='main.js'></script>
 </body>
 </html>
