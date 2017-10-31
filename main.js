@@ -35,65 +35,31 @@ Vue.component('completed-tasks', {
 
 });
 
-// Vue.component('welcome', {
-
-//   template: '<h1>{{message}}</h1>',
-
-//   data() {
-//     return {
-//       message: 'Welcome to Stone Korean Restaurant'
-//     }
-//   }
-// });
-
-// Vue.component('lunch', {
-
-//   template: "<h3>{{message}}</h3>",
-
-//   data() {
-//     return {
-//       menu: ['tofu soup', 'kalbi', 'bulgogi', 'hot pot'],
-//       message: "Today's lunch special is ",
-//       name: 'robin'
-
-//     }
-//   }
-
-// });
-
-// Vue.component('dinner', {
-//   template: '<h3>Dinner Menu</h3>'
-// })
-
-
-
-
 Vue.component("message", {
-    props: ['title', 'body'],
-    data() {
-        return {
-            isVisible: true
-        }
-    },
-    template: `
-    <article class="message" v-show="isVisible">
-        <div class="message-header">
-            <p>{{title}}</p>
-            <button @click="hideModal">X</button>
-        </div>
-        <div class="message-body">
-            {{body}}
-        </div>
-    </article>
-    `,
-    methods: {
-        hideModal() {
-            this.isVisible = false
-        }
+  props: ['title', 'body'],
+  data() {
+    return {
+      isVisible: true
     }
+  },
+  template: `
+    <article class='message' v-show='isVisible'>
+      <div class='message-header'>
+        <p>{{title}}</p>
+        <button type='button' @click='hideModal'>X</button>
+      </div>
+
+      <div class='message-body'>
+        <p>{{body}}</p>
+      </div>
+    </article>
+  `,
+  methods: {
+    hideModal() {
+      this.isVisible = false
+    }
+  }
 })
-
-
 
 
 let app = new Vue({
