@@ -60,9 +60,26 @@
 
     <!-- <message title="Hello Wordl!" body="lorem ipsum dolar sit amet"></message> -->
     <!-- <message title="Hello Universe!" body="lorem ipsum dolar sit amet"></message> -->
-
+<!-- 
     <modal v-show='showModal' @close="showModal = false">We can insert something here without hardcoding</modal>
-    <button @click="showModal = true">Show Modal</button>
+    <button @click="showModal = true">Show Modal</button> -->
+
+    <tabs>
+      <tab name='About Us' :selected="true">
+        <h1> Here is a content for about us tab</h1>
+      </tab>      
+
+      <tab name='About Our Culture'>
+        <h1> Here is a content for about us culture</h1>
+      </tab>      
+
+      <tab name='About Our Vision'>
+        <h1> Here is a content for about us vision</h1>
+      </tab>      
+      <tab name='About Our Mission'>
+        <h1> Here is a content for about us vision</h1>
+      </tab>
+    </tabs>
 
   </div>
 
