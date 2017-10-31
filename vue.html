@@ -21,6 +21,25 @@
 </head>
 <body>
   <div id='app' class='container'>
+
+    <coupon @applied="onCouponApplied"></coupon>
+    <h1 v-if="couponApplied">You used a coupon!</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--     <input type="text" id='input' v-model='message'>
     <p>The value of the input is: {{message}}.</p> -->
 <!--     <ul>
@@ -63,7 +82,7 @@
 <!-- 
     <modal v-show='showModal' @close="showModal = false">We can insert something here without hardcoding</modal>
     <button @click="showModal = true">Show Modal</button> -->
-
+<!-- 
     <tabs>
       <tab name='About Us' :selected="true">
         <h1> Here is a content for about us tab</h1>
@@ -79,7 +98,8 @@
       <tab name='About Our Mission'>
         <h1> Here is a content for about us vision</h1>
       </tab>
-    </tabs>
+    </tabs> -->
+
 
   </div>
 

@@ -78,92 +78,114 @@
 //   `
 // });
 
-Vue.component('tabs', {
+// Vue.component('tabs', {
+//     template: `
+//         <div>
+//             <div class="tabs">
+
+//               <ul>
+
+//                 <li v-for="tab in tabs" :class="{'is-active': tab.isActive}">
+
+//                     <a :href='tab.href' @click='selectTab(tab)'>{{tab.name}}</a>
+
+//                 </li>
+
+//               </ul>
+
+//             </div>
+
+//             <div class='tabs-details'>
+//                 <slot></slot>
+//             </div>
+//         </div>
+//     `,
+//     data() {
+//         return {
+//             tabs: []
+//         }
+//     },
+//     mounted() {
+//         console.log(this.$children)
+//     },
+//     created() {
+//         this.tabs = this.$children
+//     },
+//     methods: {
+//         selectTab(selectedTab) {
+//             this.tabs.forEach(tab => {
+//                 tab.isActive = (tab.name == selectedTab.name)
+//             })
+//         }
+        
+//     },
+
+// });
+
+// Vue.component('tab', {
+//     props: {
+
+//         name: {required: true},
+
+//         selected: {default: false}
+
+//     },  
+
+//     template: `
+
+//         <div v-show="isActive"><slot></slot></div>
+
+//     `,
+
+//     data() {
+
+//         return {
+
+//             isActive: false
+
+//         }
+//     },
+
+//     computed: {
+        
+//         href() {
+
+//             return '#' + this.name.toLowerCase().replace(/ /g, '-');
+
+//         }
+//     },
+
+//     mounted() {
+
+//         this.isActive = this.selected
+
+//     }
+
+// });
+
+Vue.component('coupon', {
+
     template: `
-        <div>
-            <div class="tabs">
 
-              <ul>
+        <input placeholder="Enter your coupon code" @blur="onCouponApplied">
 
-                <li v-for="tab in tabs" :class="{'is-active': tab.isActive}">
-
-                    <a :href='tab.href' @click='selectTab(tab)'>{{tab.name}}</a>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-            <div class='tabs-details'>
-                <slot></slot>
-            </div>
-        </div>
     `,
-    data() {
-        return {
-            tabs: []
-        }
-    },
-    mounted() {
-        console.log(this.$children)
-    },
-    created() {
-        this.tabs = this.$children
-    },
+
     methods: {
-        selectTab(selectedTab) {
-            this.tabs.forEach(tab => {
-                tab.isActive = (tab.name == selectedTab.name)
-            })
-        }
-        
-    },
 
-});
+        onCouponApplied() {
 
-Vue.component('tab', {
-    props: {
+            this.$emit('applied')
 
-        name: {required: true},
-
-        selected: {default: false}
-
-    },  
-
-    template: `
-
-        <div v-show="isActive"><slot></slot></div>
-
-    `,
-
-    data() {
-
-        return {
-
-            isActive: false
+            alert('applied!')
 
         }
-    },
-
-    computed: {
-        
-        href() {
-
-            return '#' + this.name.toLowerCase().replace(/ /g, '-');
-
-        }
-    },
-
-    mounted() {
-
-        this.isActive = this.selected
 
     }
 
 });
 
-
+// root instance goes on the bottom
 let app = new Vue({
   el: "#app",
   data: {
@@ -176,7 +198,8 @@ let app = new Vue({
         {id: 5, task: "Go to the church", completed: false},
         {id: 6, task: "Go to the game", completed: false}
     ],
-    showModal: false
+    showModal: false,
+    couponApplied: false
   },
 
   computed: {
@@ -186,6 +209,12 @@ let app = new Vue({
 
     completedTasks() {
         return this.tasks.filter( task => task.completed)
+    }
+  },
+
+  methods: {
+    onCouponApplied() {
+        this.couponApplied = true
     }
   }
 })
