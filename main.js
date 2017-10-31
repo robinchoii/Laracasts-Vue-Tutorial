@@ -59,6 +59,23 @@ Vue.component("message", {
       this.isVisible = false
     }
   }
+});
+
+Vue.component("modal", {
+  template: `
+    <div class="modal is-active" >
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <!-- Any other Bulma elements you want -->
+        <div class='box'>
+          <slot></slot>
+        </div>
+      </div>
+
+      <button class="modal-close is-large" @click="$emit('close')" aria-label="close"></button>
+
+    </div>
+  `
 })
 
 
@@ -73,7 +90,8 @@ let app = new Vue({
         {id: 4, task: "Go to the gym", completed: true},
         {id: 5, task: "Go to the church", completed: false},
         {id: 6, task: "Go to the game", completed: false}
-    ]
+    ],
+    showModal: false
   },
 
   computed: {

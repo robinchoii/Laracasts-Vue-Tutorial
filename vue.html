@@ -58,9 +58,11 @@
     <hr> -->
     <!-- <h1>Incomplete Tasks</h1> -->
 
-    <message title="Hello Wordl!" body="lorem ipsum dolar sit amet"></message>
-    <message title="Hello Universe!" body="lorem ipsum dolar sit amet"></message>
+    <!-- <message title="Hello Wordl!" body="lorem ipsum dolar sit amet"></message> -->
+    <!-- <message title="Hello Universe!" body="lorem ipsum dolar sit amet"></message> -->
 
+    <modal v-show='showModal' @close="showModal = false">We can insert something here without hardcoding</modal>
+    <button @click="showModal = true">Show Modal</button>
 
   </div>
 
