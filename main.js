@@ -167,29 +167,72 @@ window.Event = new Vue();
 
 
 
-Vue.component('coupon', {
+// Vue.component('coupon', {
 
+//     template: `
+
+//         <input placeholder="Enter your coupon code" @blur="onCouponApplied">
+
+//     `,
+
+//     methods: {
+
+//         onCouponApplied() {
+
+//             Event.$emit('applied')
+
+//             // this.$emit('applied')
+
+//             // alert('applied!')
+
+//         }
+
+//     }
+
+// });
+
+
+// Named slots
+
+Vue.component('modal', {
     template: `
+        <div class="modal is-active">
 
-        <input placeholder="Enter your coupon code" @blur="onCouponApplied">
+          <div class="modal-background"></div>
 
-    `,
+          <div class="modal-card">
 
-    methods: {
+            <header class="modal-card-head">
 
-        onCouponApplied() {
+              <p class="modal-card-title">
 
-            Event.$emit('applied')
+                <slot name='header'></slot>
 
-            // this.$emit('applied')
+              </p>
 
-            // alert('applied!')
+              <button class="delete" aria-label="close"></button>
 
-        }
+            </header>
 
-    }
+            <section class="modal-card-body">
 
+                <slot></slot>
+
+            </section>
+
+            <footer class="modal-card-foot">
+
+                <slot name='footer'></slot>
+
+            </footer>
+
+          </div>
+
+        </div>    
+
+    `
 });
+
 
 // root instance goes on the bottom
 let app = new Vue({
