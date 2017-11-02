@@ -194,44 +194,53 @@ window.Event = new Vue();
 
 // Named slots
 
-Vue.component('modal', {
-    template: `
-        <div class="modal is-active">
+// Vue.component('modal', {
+//     template: `
+//         <div class="modal is-active">
 
-          <div class="modal-background"></div>
+//           <div class="modal-background"></div>
 
-          <div class="modal-card">
+//           <div class="modal-card">
 
-            <header class="modal-card-head">
+//             <header class="modal-card-head">
 
-              <p class="modal-card-title">
+//               <p class="modal-card-title">
 
-                <slot name='header'></slot>
+//                 <slot name='header'></slot>
 
-              </p>
+//               </p>
 
-              <button class="delete" aria-label="close"></button>
+//               <button class="delete" aria-label="close"></button>
 
-            </header>
+//             </header>
 
-            <section class="modal-card-body">
+//             <section class="modal-card-body">
 
-                <slot></slot>
+//                 <slot></slot>
 
-            </section>
+//             </section>
 
-            <footer class="modal-card-foot">
+//             <footer class="modal-card-foot">
 
-                <slot name='footer'></slot>
+//                 <slot name='footer'></slot>
 
-            </footer>
+//             </footer>
 
-          </div>
+//           </div>
 
-        </div>    
+//         </div>    
 
-    `
-});
+//     `
+// });
+
+Vue.component('progress-view', {
+    
+    data() {
+        return {
+            completionRate: 50
+        }
+    }
+})
 
 
 // root instance goes on the bottom
@@ -248,7 +257,8 @@ let app = new Vue({
         {id: 6, task: "Go to the game", completed: false}
     ],
     showModal: false,
-    couponApplied: false
+    couponApplied: false,
+    completionRate: 50
   },
 
   computed: {

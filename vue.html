@@ -20,9 +20,24 @@
   </style>
 </head>
 <body>
-  <div id='app' class='container'>
+    <div id='app' class='container'>
+        
+        <progress-view inline-template>
 
-    <modal>
+            <div>
+
+                <h1>Your progress through its course is {{ completionRate }}%</h1>
+
+                <p><button class='button' @click="completionRate += 10">Next</button></p>
+            </div>
+
+        </progress-view>  
+
+
+
+
+
+<!--     <modal>
 
       <template slot='header'>this is so cool</template>
 
@@ -37,7 +52,7 @@
 
       </template>
 
-    </modal>
+    </modal> -->
 
 
 <!--     <coupon @applied="onCouponApplied"></coupon>
