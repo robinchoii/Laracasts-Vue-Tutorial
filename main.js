@@ -163,6 +163,10 @@
 
 // });
 
+window.Event = new Vue();
+
+
+
 Vue.component('coupon', {
 
     template: `
@@ -175,9 +179,11 @@ Vue.component('coupon', {
 
         onCouponApplied() {
 
-            this.$emit('applied')
+            Event.$emit('applied')
 
-            alert('applied!')
+            // this.$emit('applied')
+
+            // alert('applied!')
 
         }
 
@@ -216,5 +222,9 @@ let app = new Vue({
     onCouponApplied() {
         this.couponApplied = true
     }
+  },
+
+  created() {
+    Event.$on('applied', () => alert('handling it!'))
   }
 })
