@@ -2,7 +2,7 @@
 
     <div>
 
-        <h1>Count: {{count}}</h1>
+        <h1>Counts: {{count}}</h1>
 
         <button @click='count += 11'>increase count</button>
     </div>
