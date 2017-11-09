@@ -28,23 +28,23 @@
             return {
 
                 todos: [{
-                    name: 'Todo A',
+                    title: 'Todo A',
                     project: 'Project A',
                     done: false
                 }, {
-                    name: 'ToDo B',
+                    title: 'ToDo B',
                     project: 'Project B',
                     done: false
                 }, {
-                    name: 'ToDo C',
+                    title: 'ToDo C',
                     project: 'Project C',
                     done: false
                 }, {
-                    name: 'ToDo D',
+                    title: 'ToDo D',
                     project: 'Project D',
                     done: false
                 }, {
-                    name: 'ToDo E',
+                    title: 'ToDo E',
                     project: 'Project E',
                     done: false
                 }]

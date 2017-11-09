@@ -43,7 +43,7 @@
 
                     <label>Title</label>
 
-                    <input type="text" v-model='todo.name'>
+                    <input type="text" v-model='todo.title'>
 
                 </div>
 
@@ -92,7 +92,6 @@
             return {
 
                 isEditing: false,
-                name: 'robin'
 
             }
 

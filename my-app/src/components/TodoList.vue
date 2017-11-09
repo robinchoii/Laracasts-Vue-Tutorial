@@ -8,25 +8,31 @@
 
         <todo v-for="todo in todos" :todo='todo' @delete-todo='deleteTodo'></todo>
 
+        <create-todo @add-todo='addTodo'></create-todo>
     </div>
 
 </template>
 
 <script>
     import Todo from './Todo.vue'
+    import CreateTodo from './CreateTodo.vue'
 
     export default {
         props: ['todos'],
 
-        components: {Todo},
+        components: {Todo, CreateTodo},
 
         methods: {
             deleteTodo(todo) {
                 const todoIndex = this.todos.indexOf(todo);
 
                 this.todos.splice(todoIndex, 1)
-            }
-        }
+            },
+
+            addTodo(todo) {
+                this.todos.push(todo);
+            },
+        },
     }
 
 </script>
