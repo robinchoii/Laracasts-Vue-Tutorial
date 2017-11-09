@@ -6,7 +6,7 @@
     <message>Hello {{name}}! </message>
 
     <counter></counter> -->
-    <todo-list v-bind:todos='todos'></todo-list>
+    <todo-list :todos='todos'></todo-list>
 
   </div>
 
