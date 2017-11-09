@@ -2,10 +2,11 @@
 
   <div id="app">
 
-    <message>Hello There!</message>
+<!--     <message>Hello There!</message>
     <message>Hello {{name}}! </message>
 
-    <counter></counter>
+    <counter></counter> -->
+    <todo-list v-bind:todos='todos'></todo-list>
 
   </div>
 
@@ -14,18 +15,39 @@
 <script>
     import Message from './components/Message.vue';
     import Counter from './components/Counter.vue';
+    import TodoList from './components/TodoList.vue';
 
     export default {
 
         name: 'app',
 
-        components: {Message, Counter},
+        components: {Message, Counter, TodoList},
 
         data() {
 
             return {
 
-                name: "robin"
+                todos: [{
+                    name: 'Todo A',
+                    project: 'Project A',
+                    done: false
+                }, {
+                    name: 'ToDo B',
+                    project: 'Project B',
+                    done: false
+                }, {
+                    name: 'ToDo C',
+                    project: 'Project C',
+                    done: false
+                }, {
+                    name: 'ToDo D',
+                    project: 'Project D',
+                    done: false
+                }, {
+                    name: 'ToDo E',
+                    project: 'Project E',
+                    done: false
+                }]
 
             }
         }

@@ -1,0 +1,66 @@
+<template>
+
+    <div class='box'>
+        <div class='ui centered card' v-for="todo in todos">
+
+            <div class='content'>
+
+                <div class='header'>
+
+                    {{ todo.title }}
+
+                </div>
+
+                <div class='meta'>
+
+                    {{ todo.project }}
+
+                </div>
+
+                <div class='extra content'>
+
+                    <span class='right floated edit icon'>
+
+                        <i class='edit icon'></i>
+
+                    </span>
+
+                </div>
+
+                <div class='ui bottom attached green basic buttton' v-show='todo.done'>
+
+                    Completed
+
+                </div>
+
+                <div class='ui bottom attached green basic button' v-show='!todo.done'>
+
+                    Complete
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<script>
+
+    export default {
+        props: ['todos']
+    }
+
+</script>
+
+<style>
+    .box {
+        padding:20px;
+     }
+
+
+
+</style>
+
