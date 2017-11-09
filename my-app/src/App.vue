@@ -8,6 +8,8 @@
     <counter></counter> -->
     <todo-list :todos='todos'></todo-list>
 
+    <create-todo @add-todo='addTodo'></create-todo>
+
   </div>
 
 </template>
@@ -16,12 +18,13 @@
     import Message from './components/Message.vue';
     import Counter from './components/Counter.vue';
     import TodoList from './components/TodoList.vue';
+    import CreateTodo from './components/CreateTodo.vue';
 
     export default {
 
         name: 'app',
 
-        components: {Message, Counter, TodoList},
+        components: {Message, Counter, TodoList, CreateTodo},
 
         data() {
 
@@ -50,7 +53,18 @@
                 }]
 
             }
-        }
+        },
+        methods: {
+            deleteTodo(todo) {
+                const todoIndex = this.todos.indexOf(todo);
+
+                this.todos.splice(todoIndex, 1)
+            },
+
+            addTodo(todo) {
+                this.todos.push(todo);
+            },
+        },
 
     }
 

@@ -8,7 +8,6 @@
 
         <todo v-for="todo in todos" :todo='todo' @delete-todo='deleteTodo'></todo>
 
-        <create-todo @add-todo='addTodo'></create-todo>
     </div>
 
 </template>
@@ -20,19 +19,7 @@
     export default {
         props: ['todos'],
 
-        components: {Todo, CreateTodo},
-
-        methods: {
-            deleteTodo(todo) {
-                const todoIndex = this.todos.indexOf(todo);
-
-                this.todos.splice(todoIndex, 1)
-            },
-
-            addTodo(todo) {
-                this.todos.push(todo);
-            },
-        },
+        components: { Todo },
     }
 
 </script>
