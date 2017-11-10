@@ -55,14 +55,11 @@
             }
         },
         methods: {
-            deleteTodo(todo) {
-                const todoIndex = this.todos.indexOf(todo);
-
-                this.todos.splice(todoIndex, 1)
-            },
 
             addTodo(todo) {
+
                 this.todos.push(todo);
+                
             },
         },
 
