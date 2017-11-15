@@ -15,25 +15,28 @@
 <script>
     import Todo from './Todo.vue'
     import CreateTodo from './CreateTodo.vue'
+    import Hub from '../Hub.js'
 
     export default {
         props: ['todos'],
 
         components: { Todo },
 
+        created() {
+
+            Hub.$on('delete-todo', this.deleteTodo)
+
+        },
+
         methods: {
-            deleteTodo(todo) { 
+            deleteTodo(todo) {
 
                 const todoIndex = this.todos.indexOf(todo);
-
-                console.log(todoIndex)
 
                 this.todos.splice(todoIndex, 1);
             },
 
             completeTodo(todo) {
-
-                console.log('hi')
 
                 const todoIndex = this.todos.indexOf(todo);
 

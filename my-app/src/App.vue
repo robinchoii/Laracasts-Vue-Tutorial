@@ -19,12 +19,14 @@
     import Counter from './components/Counter.vue';
     import TodoList from './components/TodoList.vue';
     import CreateTodo from './components/CreateTodo.vue';
+    import Hub from './Hub.js';
+
 
     export default {
 
         name: 'app',
 
-        components: {Message, Counter, TodoList, CreateTodo},
+        components: {Message, Counter, TodoList, CreateTodo, Hub},
 
         data() {
 
@@ -54,12 +56,16 @@
 
             }
         },
+        created() {
+            Hub.$on('add-todo', this.addTodo)
+
+        },
         methods: {
 
             addTodo(todo) {
 
                 this.todos.push(todo);
-                
+
             },
         },
 

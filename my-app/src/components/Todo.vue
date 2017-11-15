@@ -82,6 +82,7 @@
 </template>
 
 <script type="text/javascript">
+    import Hub from '../Hub.js';
 
     export default {
 
@@ -112,7 +113,7 @@
 
             deleteTodo(todo) {
 
-                this.$emit('delete-todo', todo)
+                Hub.$emit('delete-todo', todo)
 
             },
 
