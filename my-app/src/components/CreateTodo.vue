@@ -50,8 +50,10 @@
 </template>
 
 <script type="text/javascript">
+    import Hub from '../Hub.js';
 
     export default {
+
         data() {
 
             return {
@@ -78,7 +80,7 @@
 
                     const newProject = this.projectText;
 
-                    this.$emit('add-todo', {
+                    Hub.$emit('add-todo', {
                         title:newTitle,
 
                         project: newProject,
