@@ -25,6 +25,7 @@
         created() {
 
             Hub.$on('delete-todo', this.deleteTodo)
+            Hub.$on('complete-todo', this.completeTodo)
 
         },
 
@@ -42,6 +43,7 @@
 
                 this.todos[todoIndex].done = true;
 
+                Hub.$emit('success-open', todo)
             }
         }
     }

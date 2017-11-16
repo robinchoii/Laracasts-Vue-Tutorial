@@ -10,6 +10,7 @@
 
     <create-todo @add-todo='addTodo'></create-todo>
 
+    <success v-show="success" @success-open='onSuccessOpen' @success-close='onSuccessClose'></success>
   </div>
 
 </template>
@@ -19,6 +20,7 @@
     import Counter from './components/Counter.vue';
     import TodoList from './components/TodoList.vue';
     import CreateTodo from './components/CreateTodo.vue';
+    import Success from './components/Success.vue';
     import Hub from './Hub.js';
 
 
@@ -26,7 +28,7 @@
 
         name: 'app',
 
-        components: {Message, Counter, TodoList, CreateTodo, Hub},
+        components: {Message, Counter, TodoList, CreateTodo, Hub, Success},
 
         data() {
 
@@ -52,15 +54,37 @@
                     title: 'ToDo E',
                     project: 'Project E',
                     done: false
-                }]
+                }],
 
+                success: false
             }
+
         },
+
         created() {
+
             Hub.$on('add-todo', this.addTodo)
 
+            Hub.$on('success-open', this.onSuccessOpen)
+
+            Hub.$on('success-close', this.onSuccessClose)
+
         },
+
         methods: {
+
+            onSuccessClose() {
+
+                this.success = false;
+
+            },
+
+            onSuccessOpen(todo) {
+
+                this.success = true;
+
+
+            },
 
             addTodo(todo) {
 

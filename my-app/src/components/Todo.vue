@@ -119,7 +119,7 @@
 
             completeTodo(todo) {
 
-                this.$emit('complete-todo', todo)
+                Hub.$emit('complete-todo', todo)
 
             }
         },

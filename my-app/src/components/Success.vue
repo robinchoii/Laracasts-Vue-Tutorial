@@ -1,6 +1,6 @@
 <template>
 
-    <div class='small modal' v-show='show'>
+    <div class='small modal'>
 
         <div class='modal-background'>
 
@@ -8,19 +8,10 @@
 
                 <h1>Success!</h1>
 
-                <div class='todoCard' v-for='todo in todos'>
+                <div>
 
-                    <p>
+                    <button @click='successClose'> Done</button>
 
-                        {{todo.title}}
-
-                    </p>
-
-                    <div class='actions'>
-
-                        <button class='ui approve button'>Done</button>
-
-                    </div>
                 </div>
 
             </div>
@@ -32,8 +23,20 @@
 </template>
 
 <script type="text/javascript">
+    import Hub from '../Hub.js'
 
     export default {
+
+        methods: {
+
+            successClose() {
+
+                Hub.$emit('success-close');
+
+            }
+
+
+        }
 
     }
 
@@ -41,11 +44,12 @@
 
 <style type="text/css">
 
-    .modal-content {
-
-        padding: 30px;
-
+    .modal-container {
+        border: solid 1px black;
         text-align: center;
+        width: 20%;
+        margin: 0px auto;
+        padding: 30px;
     }
 
 </style>
