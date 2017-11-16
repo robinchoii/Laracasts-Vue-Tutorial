@@ -1,6 +1,6 @@
 <template>
 
-    <div class='small modal'>
+    <div class='modal'>
 
         <div class='modal-background'>
 
@@ -8,9 +8,15 @@
 
                 <h1>Success!</h1>
 
+                <p>
+
+                    {{todo.title}}
+
+                </p>
+
                 <div>
 
-                    <button @click='successClose'> Done</button>
+                    <button  class='ui blue button' @click='successClose'> Done</button>
 
                 </div>
 
@@ -27,14 +33,36 @@
 
     export default {
 
+        data() {
+
+            return {
+
+                todo: {}
+
+            }
+
+        },
+
+        created() {
+
+            Hub.$on('set-todo', this.onSetTodo)
+
+        },
+
         methods: {
+
 
             successClose() {
 
                 Hub.$emit('success-close');
 
-            }
+            },
 
+            onSetTodo(todo) {
+
+                this.todo = todo
+
+            }
 
         }
 
@@ -44,6 +72,9 @@
 
 <style type="text/css">
 
+    .modal-background {
+
+    }
     .modal-container {
         border: solid 1px black;
         text-align: center;

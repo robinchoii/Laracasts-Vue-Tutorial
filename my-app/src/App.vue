@@ -10,7 +10,7 @@
 
     <create-todo @add-todo='onAddTodo'></create-todo>
 
-    <success v-show="success" @success-open='onSuccessOpen' @success-close='onSuccessClose'></success>
+    <success v-show="success" @success-open='onSuccessOpen' @success-close='onSuccessClose' ></success>
   </div>
 
 </template>
@@ -56,7 +56,7 @@
                     done: false
                 }],
 
-                success: false
+                success: false,
             }
 
         },
@@ -83,6 +83,7 @@
 
                 this.success = true;
 
+                Hub.$emit('set-todo', todo)
 
             },
 
@@ -91,6 +92,7 @@
                 this.todos.push(todo);
 
             },
+
         },
 
     }

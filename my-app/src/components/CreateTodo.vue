@@ -32,14 +32,13 @@
 
                     <div class='ui two button attached buttons'>
 
-                        <button class='ui basic blue button' @click='submitForm()'>Add</button>
+                        <button class='ui basic blue button' @click='submitForm'>Add</button>
 
-                        <button class='ui basic blue button' @click='closeForm()'>Cancel</button>
+                        <button class='ui basic blue button' @click='closeForm'>Cancel</button>
 
                     </div>
 
                 </div>
-
 
             </div>
 
@@ -50,6 +49,7 @@
 </template>
 
 <script type="text/javascript">
+
     import Hub from '../Hub.js';
 
     export default {
@@ -74,6 +74,7 @@
             },
 
             submitForm() {
+
                 if (this.titleText.length > 0 && this.projectText.length > 0) {
 
                     const newTitle = this.titleText;
@@ -86,20 +87,28 @@
                         project: newProject,
 
                         done: false
+
                     });
 
                     this.titleText = '';
+
                     this.projectText = '';
                 }
+
                 this.isCreating = false
 
             },
 
             closeForm() {
-                console.log('close')
+                this.titleText = '';
+
+                this.projectText = '';
+
                 this.isCreating= false
 
             }
+
         }
+
     }
 </script>

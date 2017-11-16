@@ -18,6 +18,7 @@
     import Hub from '../Hub.js'
 
     export default {
+
         props: ['todos'],
 
         components: { Todo },
@@ -31,6 +32,7 @@
         },
 
         methods: {
+
             onDeleteTodo(todo) {
 
                 const todoIndex = this.todos.indexOf(todo);
@@ -52,6 +54,7 @@
 </script>
 
 <style>
+
     .box {
         padding:20px;
      }
