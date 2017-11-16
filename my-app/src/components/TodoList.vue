@@ -63,6 +63,7 @@
         margin: 0px auto;
         /*border: 3px solid green;*/
         text-align: center;
+        font-size: 2em;
      }
 
 

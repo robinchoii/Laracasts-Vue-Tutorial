@@ -6,17 +6,23 @@
 
             <div class='modal-container'>
 
-                <h1>Success!</h1>
+                <div class='modal-content'>
 
-                <p>
+                    <i class="massive checkmark icon"></i>
 
-                    {{todo.title}}
+                    <h1>Success!</h1>
 
-                </p>
+                    <p>
 
-                <div>
+                        {{todo.title}} completed!
 
-                    <button  class='ui blue button' @click='successClose'> Done</button>
+                    </p>
+
+                    <div>
+
+                        <button  class='ui blue button' @click='successClose'> Done</button>
+
+                    </div>
 
                 </div>
 
@@ -73,14 +79,37 @@
 <style type="text/css">
 
     .modal-background {
-
+        position: fixed;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity .3s ease;
     }
     .modal-container {
-        border: solid 1px black;
         text-align: center;
-        width: 20%;
+        width: 400px;
         margin: 0px auto;
-        padding: 30px;
+        padding: 20px 30px;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+        transition: all .3s ease;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+    .modal-content {
+        font-size: 16px;
+        font-weight: 300;
+    }
+    .checkmark {
+
+        color: green;
+
     }
 
 </style>
