@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css
+">
+  <style type="text/css">
+    body {
+        padding-top: 40px;
+    }
+    .color-red {
+      color: red;
+    }
+    .color-blue {
+      color: blue;
+    }
+    .is-loading {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+    <div id='app' class='container'>
+        
+        <progress-view inline-template>
+
+            <div>
+
+                <h1>Your progress through its course is {{ completionRate }}%</h1>
+
+                <p><button class='button' @click="completionRate += 10">Next</button></p>
+            </div>
+
+        </progress-view>  
+
+
+
+
+
+<!--     <modal>
+
+      <template slot='header'>this is so cool</template>
+
+      this is so cool content info goes here
+
+
+      <template slot='footer'>
+          
+          <button class="button is-success">Save changes</button>
+
+          <button class="button">Cancel</button>
+
+      </template>
+
+    </modal> -->
+
+
+<!--     <coupon @applied="onCouponApplied"></coupon>
+    <h1 v-if="couponApplied">You used a coupon!</h1>
+ -->
+
+<!--     <input type="text" id='input' v-model='message'>
+    <p>The value of the input is: {{message}}.</p> -->
+<!--     <ul>
+      <li v-for='name in names' v-text='name'></li>
+    </ul>
+    <input type="text" id='input' v-model='newName'> -->
+    <!-- <button @click="addName">add name</button> -->
+    <!-- <button @click='method' :title='title'>Hover over me!</button> -->
+    <!-- <button :class="{'is-loading': isLoading}" @click="toggleClass">Click me!</button> -->
+    <!-- <button :disabled="active" @click='toggleClass'>Click me!</button> -->
+    <!-- <h1>{{ reversedMessage }}</h1> -->
+<!--     <h2>All Tasks</h2>
+    <ul>
+      <li v-for="task in tasks"><input type="checkbox" v-model='task.completed'>{{task.description}}</li>
+    </ul>
+    <hr>
+    <h2>Completed Tasks</h2>
+    <ul>
+      <li v-for='task in completedTasks' v-text='task.description'></li>
+    </ul>
+    <hr>
+    <h2>Incomplete Tasks</h2>
+    <ul>
+      <li v-for="task in incompleteTasks" v-text="task.description"></li>
+    </ul> -->
+
+
+
+    <!-- <welcome></welcome> -->
+<!--     <h1>All tasks</h1>
+    <task-list></task-list>
+    <hr>
+    <h1>Completed Tasks</h1>
+    <completed-tasks></completed-tasks>
+    <hr> -->
+    <!-- <h1>Incomplete Tasks</h1> -->
+
+    <!-- <message title="Hello Wordl!" body="lorem ipsum dolar sit amet"></message> -->
+    <!-- <message title="Hello Universe!" body="lorem ipsum dolar sit amet"></message> -->
+<!-- 
+    <modal v-show='showModal' @close="showModal = false">We can insert something here without hardcoding</modal>
+    <button @click="showModal = true">Show Modal</button> -->
+<!-- 
+    <tabs>
+      <tab name='About Us' :selected="true">
+        <h1> Here is a content for about us tab</h1>
+      </tab>      
+
+      <tab name='About Our Culture'>
+        <h1> Here is a content for about us culture</h1>
+      </tab>      
+
+      <tab name='About Our Vision'>
+        <h1> Here is a content for about us vision</h1>
+      </tab>      
+      <tab name='About Our Mission'>
+        <h1> Here is a content for about us vision</h1>
+      </tab>
+    </tabs> -->
+
+
+  </div>
+
+  <script src='https://unpkg.com/vue@2.4.4/dist/vue.js'></script>
+
+  <script src='main.js'></script>
+</body>
+</html>
