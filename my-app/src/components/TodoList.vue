@@ -6,7 +6,7 @@
 
         <p class='done'>Completed Tasks: {{ todos.filter(todo => {return todo.done === false}).length }}</p>
 
-        <todo v-for="todo in todos" :todo='todo' @delete-todo='deleteTodo' @complete-todo='completeTodo'></todo>
+        <todo v-for="todo in todos" :todo='todo' @delete-todo='onDeleteTodo' @complete-todo='onCompleteTodo'></todo>
 
     </div>
 
@@ -24,20 +24,21 @@
 
         created() {
 
-            Hub.$on('delete-todo', this.deleteTodo)
-            Hub.$on('complete-todo', this.completeTodo)
+            Hub.$on('delete-todo', this.onDeleteTodo)
+
+            Hub.$on('complete-todo', this.onCompleteTodo)
 
         },
 
         methods: {
-            deleteTodo(todo) {
+            onDeleteTodo(todo) {
 
                 const todoIndex = this.todos.indexOf(todo);
 
                 this.todos.splice(todoIndex, 1);
             },
 
-            completeTodo(todo) {
+            onCompleteTodo(todo) {
 
                 const todoIndex = this.todos.indexOf(todo);
 

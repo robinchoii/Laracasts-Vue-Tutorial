@@ -8,7 +8,7 @@
     <counter></counter> -->
     <todo-list :todos='todos'></todo-list>
 
-    <create-todo @add-todo='addTodo'></create-todo>
+    <create-todo @add-todo='onAddTodo'></create-todo>
 
     <success v-show="success" @success-open='onSuccessOpen' @success-close='onSuccessClose'></success>
   </div>
@@ -63,7 +63,7 @@
 
         created() {
 
-            Hub.$on('add-todo', this.addTodo)
+            Hub.$on('add-todo', this.onAddTodo)
 
             Hub.$on('success-open', this.onSuccessOpen)
 
@@ -86,7 +86,7 @@
 
             },
 
-            addTodo(todo) {
+            onAddTodo(todo) {
 
                 this.todos.push(todo);
 
