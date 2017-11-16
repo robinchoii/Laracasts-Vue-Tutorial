@@ -6,7 +6,7 @@
 
         <p class='done'>Completed Tasks: {{ todos.filter(todo => {return todo.done === false}).length }}</p>
 
-        <todo v-for="todo in todos" :todo='todo' @delete-todo='onDeleteTodo' @complete-todo='onCompleteTodo'></todo>
+        <todo v-for="todo in todos" :key='todo.id' :todo='todo' @delete-todo='onDeleteTodo' @complete-todo='onCompleteTodo'></todo>
 
     </div>
 
